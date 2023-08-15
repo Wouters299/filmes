@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FilmesController;
+use App\Http\Controllers\UsuariosController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +37,7 @@ Route::prefix('/usuarios')->middleware("auth")->group(function () {
 
 });
 
-Route::prefix('/filmes')->middleware("auth")->group(function () {
+Route::prefix('/filmes')->group(function () {
 
     Route::get('index', [FilmesController::class, 'index'])->name('filmes.index');
 
