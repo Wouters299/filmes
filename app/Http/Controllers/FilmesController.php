@@ -55,8 +55,8 @@ public function index()
 }
 public function edit($id)
 {
-    $id=1;
-        $filme = Filme::findOrFail($id);
+    $filme = Filme::findOrFail($id);
+
     return view('filmes.add', [
         'filme' => $filme,
     ]);
@@ -66,27 +66,53 @@ public function editSave(Request $form, $id)
 {
     $filme = Filme::findOrFail($id);
 
-    // Restante do seu código para edição e validação
+    if ($form->hasFile("imagem") && $form->file("imagem")->isValid()) {
+        // Your image handling code here...
+    }
+
+    $dados = $form->validate([
+        'nome' => 'required',
+        'sinopse' => 'required',
+        'ano' => 'required',
+        'categoria' => 'required',
+        'trailer' => 'required',
+    ]);
+
+    $filme->nome = $dados['nome'];
+    $filme->sinopse = $dados['sinopse'];
+    $filme->ano = $dados['ano'];
+    $filme->categoria = $dados['categoria'];
+    $filme->trailer = $dados['trailer'];
+
+    $filme->save();
 
     return redirect()->route('filmes.index')->with('sucesso', 'Filme alterado com sucesso');
 }
 
+
 public function delete($id)
 {
-    $filme = Filme::findOrFail($id);
+    try {
+        $filme = Filme::findOrFail($id);
+        $filme->delete();
 
-    return view('filmes.delete', [
-        'filme' => $filme,
-    ]);
+        return redirect()->route('filmes.index')->with('sucesso', 'Filme marcado para exclusão');
+    } catch (\Exception $e) {
+        return redirect()->route('filmes.index')->with('erro', 'Erro ao marcar o filme para exclusão');
+    }
 }
- 
-
 
 public function deleteForReal($id)
 {
-    $filme = Filme::findOrFail($id);
-    $filme->delete();
+    try {
+        $filme = Filme::findOrFail($id);
+        $filme->delete();
 
-    return redirect()->route('filmes.index')->with('sucesso', 'Filme excluído com sucesso');
+        return redirect()->route('filmes.index')->with('sucesso', 'Filme excluído com sucesso');
+    } catch (\Exception $e) {
+        return redirect()->route('filmes.index')->with('erro', 'Erro ao excluir o filme');
+    }
 }
+
+
 }

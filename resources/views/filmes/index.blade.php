@@ -24,11 +24,21 @@
                     <td>{{ $filme->imagem }}</td>
                     <td>{{ $filme->trailer }}</td>
                     <td>
-                        <a href="{{ route('filmes.edit', ['id' => $filme->id]) }}">Editar</a>
-                        <a href="{{ route('filmes.delete', ['id' => $filme->id]) }}">deletar</a>
+                        
+                        <td>
+    <a href="{{ route('filmes.edit', ['id' => $filme->id]) }}">Editar</a>
+    <form method="post" action="{{ route('filmes.deleteForReal', ['id' => $filme->id]) }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Deletar</button>
+    </form>
+</td>
+
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 @endsection
+
+

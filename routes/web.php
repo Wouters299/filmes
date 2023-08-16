@@ -71,11 +71,11 @@ Route::prefix('/filmes')->group(function () {
     Route::post('add', [FilmesController::class, 'addsave'])->name('filmes.addsave');
 
     Route::get('edit/{id}', [FilmesController::class, 'edit'])->name('filmes.edit');
-
     Route::post('edit/{id}', [FilmesController::class, 'editSave'])->name('filmes.editSave');
 
     Route::get('delete/{id}', [FilmesController::class, 'delete'])->name('filmes.delete');
 
     Route::delete('delete/{id}', [FilmesController::class, 'deleteForReal'])->name('filmes.deleteForReal');
+
 
 });
