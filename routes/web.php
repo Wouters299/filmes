@@ -1,6 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+
+
+
+
+use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\FilmesController;
 use App\Http\Controllers\UsuariosController;
 
@@ -17,11 +21,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('login');
 });
 
-Route::prefix('/usuarios')->middleware("auth")->group(function () {
+Route::prefix('/usuarios')->group(function () {
 
     Route::get('add', [UsuariosController::class, 'add'])->name('usuarios.add');
 
@@ -34,6 +39,26 @@ Route::prefix('/usuarios')->middleware("auth")->group(function () {
     Route::get('delete/{usuario}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
 
     Route::delete('delete/{usuario}', [UsuariosController::class, 'deleteForReal'])->name('usuarios.deleteForReal');
+
+});
+
+
+
+Route::prefix('/admins')->group(function () {
+
+    Route::get('index', [adminsController::class, 'index'])->name('admins.index');
+
+    Route::get('add', [adminsController::class, 'add'])->name('admins.add');
+
+    Route::post('add', [adminsController::class, 'addsave'])->name('admins.addsave');
+
+    Route::get('edit/{produto}', [adminsController::class, 'edit'])->name('admins.edit');
+
+    Route::post('edit/{produto}', [adminsController::class, 'editSave'])->name('admins.editSave');
+
+    Route::get('delete/{produto}', [adminsController::class, 'delete'])->name('admins.delete');
+
+    Route::delete('delete/{produto}', [adminsController::class, 'deleteForReal'])->name('admins.deleteForReal');
 
 });
 

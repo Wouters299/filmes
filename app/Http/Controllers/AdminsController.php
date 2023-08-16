@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 
 
-use App\Models\Usuario;
+use App\Models\admin;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-class UsuariosController extends Controller
+class adminsController extends Controller
 {
     public function add()
     {
-        return view('usuarios.add');
+        return view('admins.add');
     }
     public function addSave(Request $form)
     {
       
         $dados = $form->validate([
             'nome' => 'required',
-            'email' => 'required',
+            'cpf' => 'required',
             'senha' => 'required',
             
             
@@ -26,7 +26,7 @@ class UsuariosController extends Controller
 
         
 
-        $usuario = Usuario::create($dados);
+        $admin = Admin::create($dados);
 
         
       

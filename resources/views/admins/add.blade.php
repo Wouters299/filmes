@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar usuarios</title>
+    <title>Adicionar admins</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"rel="stylesheet">
@@ -22,7 +22,7 @@
     @endif
 
     <section id="signup">
-        <form action="{{ route('usuarios.addSave') }}" method="POST" class="form">
+        <form action="{{ route('admins.addsave') }}" method="POST" class="form">
             @csrf
             
                     <h1>Add usuários</h1>
@@ -30,17 +30,17 @@
                         
                         <div class="field-input">
                             <label for="nome"><span>*</span>Nome</label>
-                            <input value="{{ old('nome', $usuarios->nome ?? '') }}" type="text" name="nome"
+                            <input value="{{ old('nome', $admins->nome ?? '') }}" type="text" name="nome"
                                 placeholder="João da Silva">
                         </div>
                             <div class="field-group">
                                 <div class="fname-input">
-                                    <label for="sinope">*<span>email</span></label>
-                                    <input value="{{ old('email', $usuarios->email ?? '') }}" type="text" name="email">
+                                    <label for="sinope">*<span>cpf</span></label>
+                                    <input value="{{ old('cpf', $admins->cpf ?? '') }}" type="text" name="cpf">
                                 </div>
                                 <div class="lname-input">
                                     <label for="senha"><span>*</span>senha </label>
-                                    <input value="{{ old('senha', $usuarios->senha ?? '') }}" type="text" name="senha">
+                                    <input value="{{ old('senha', $admins->senha ?? '') }}" type="text" name="senha">
                                     </div>  
                                
                            

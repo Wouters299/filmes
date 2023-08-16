@@ -15,10 +15,10 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        Admin::create([
+        admin::create([
             'nome' => 'Pitagoras',
             'cpf' => '000000001',
-            'password' => Hash::make('123'),
+            'senha' => Hash::make('123'),
             
         ]);
     }
