@@ -30,8 +30,7 @@
                         
                         <div class="field-input">
                             <label for="nome"><span>*</span>Nome</label>
-                            <input value="{{ old('nome', $filmes->nome ?? '') }}" type="text" name="nome"
-                                placeholder="João da Silva">
+                            <input value="{{ old('nome', $filmes->nome ?? '') }}" type="text" name="nome" placeholder="João da Silva">
                         </div>
                             <div class="field-group">
                                 <div class="fname-input">
@@ -41,6 +40,7 @@
                                 <div class="lname-input">
                                     <label for="ano"><span>*</span>ano do filmes</label>
                                     <input value="{{ old('ano', $filmes->ano ?? '') }}" type="text" name="ano">
+
                                        
                                
                             </div>
@@ -52,14 +52,12 @@
                                 </div>
                                 <div class="lname-input">
                                     <label for="imagem"><span>*</span>imagem</label>
-                                    <input value="{{ old('imagem', $aluno->imagem ?? '') }}" type="file" name="imagem"
-                                        placeholder="e.g. Doe">
+                                    <input value="{{ old('imagem', $filmes->imagem ?? '') }}" type="file" name="imagem" placeholder="e.g. Doe">
                                 </div>
                             </div>
                             <div class="field-input">
                                 <label for="trailer"><span>*</span>trailer</label>
                                 <input value="{{ old('trailer', $filmes->trailer ?? '') }}" type="text" name="trailer">
-                                    
                             </div>
                            
                

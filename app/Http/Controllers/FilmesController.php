@@ -12,6 +12,16 @@ class FilmesController extends Controller
     {
         return view('filmes.add');
     }
+
+   
+
+public function index()
+{
+    $filmes = Filme::all();
+
+    return view('filmes.index', compact('filmes'));
+}
+
     public function addSave(Request $form)
 {
     $filme = new Filme; // Criar uma nova instância de Filme
@@ -42,5 +52,41 @@ class FilmesController extends Controller
     $filme->trailer = $dados['trailer'];
 
     $filme->save(); // Salvar a instância de Filme no banco de dados
+}
+public function edit($id)
+{
+    $id=1;
+        $filme = Filme::findOrFail($id);
+    return view('filmes.add', [
+        'filme' => $filme,
+    ]);
+}
+
+public function editSave(Request $form, $id)
+{
+    $filme = Filme::findOrFail($id);
+
+    // Restante do seu código para edição e validação
+
+    return redirect()->route('filmes.index')->with('sucesso', 'Filme alterado com sucesso');
+}
+
+public function delete($id)
+{
+    $filme = Filme::findOrFail($id);
+
+    return view('filmes.delete', [
+        'filme' => $filme,
+    ]);
+}
+ 
+
+
+public function deleteForReal($id)
+{
+    $filme = Filme::findOrFail($id);
+    $filme->delete();
+
+    return redirect()->route('filmes.index')->with('sucesso', 'Filme excluído com sucesso');
 }
 }

@@ -70,12 +70,12 @@ Route::prefix('/filmes')->group(function () {
 
     Route::post('add', [FilmesController::class, 'addsave'])->name('filmes.addsave');
 
-    Route::get('edit/{produto}', [FilmesController::class, 'edit'])->name('filmes.edit');
+    Route::get('edit/{id}', [FilmesController::class, 'edit'])->name('filmes.edit');
 
-    Route::post('edit/{produto}', [FilmesController::class, 'editSave'])->name('filmes.editSave');
+    Route::post('edit/{id}', [FilmesController::class, 'editSave'])->name('filmes.editSave');
 
-    Route::get('delete/{produto}', [FilmesController::class, 'delete'])->name('filmes.delete');
+    Route::get('delete/{id}', [FilmesController::class, 'delete'])->name('filmes.delete');
 
-    Route::delete('delete/{produto}', [FilmesController::class, 'deleteForReal'])->name('filmes.deleteForReal');
+    Route::delete('delete/{id}', [FilmesController::class, 'deleteForReal'])->name('filmes.deleteForReal');
 
 });
