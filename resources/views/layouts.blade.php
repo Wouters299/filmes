@@ -9,7 +9,7 @@
         <nav>
             <ul>
                 <li><a href="/login">Página Inicial</a></li>
-                <li><a href="/filmes">Filmes</a></li>
+                <li><a href="/filmes/add">Filmes</a></li>
                 <!-- Adicione outros links de navegação conforme necessário -->
             </ul>
         </nav>

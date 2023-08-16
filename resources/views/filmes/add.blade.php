@@ -23,7 +23,7 @@
     @endif
 
     <section id="signup">
-        <form action="{{ isset($filme) ? route('filmes.editSave', ['id' => $filme->id]) : route('filmes.addSave') }}" method="POST" class="form" enctype="multipart/form-data">
+    <form action="{{ isset($filme) ? route('filmes.editSave', ['id' => $filme->id]) : route('filmes.addsave') }}" method="POST" class="form" enctype="multipart/form-data">
             @csrf
             
             <h1>{{ isset($filme) ? 'Editar Filme' : 'Novo Filme' }}</h1>

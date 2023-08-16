@@ -29,11 +29,12 @@ public function index()
     if ($form->hasFile("imagem") && $form->file("imagem")->isValid()) {
         $requestImage = $form->imagem;
         $extension = $requestImage->extension();
-        $imageName = md5($requestImage->getClientOriginalName() . strtotime("now") . ".jpg"  );
+        $imageName = ($requestImage->getClientOriginalName() . strtotime("now") . ".jpg"  );
 
         $requestImage->move(public_path('img/events'), $imageName);
 
         $filme->imagem = $imageName; // Salvar o nome da imagem na instância de Filme
+        return redirect()->route('filmes.index')->with('sucesso', 'Filme adicionado com sucesso');
     }
 
     $dados = $form->validate([

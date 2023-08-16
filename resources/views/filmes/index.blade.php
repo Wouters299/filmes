@@ -36,9 +36,12 @@
 
                     </td>
                 </tr>
+               
             @endforeach
+           
         </tbody>
     </table>
+    <a href="{{ route('filmes.add') }}" class="add-button">Adicionar Novo Filme</a>
 @endsection
 
 
