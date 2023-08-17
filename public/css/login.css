@@ -49,6 +49,7 @@ input[type="password"] {
     border-radius: 50px;
     background-color: transparent;
     font-size: 16px;
+    color: #fff;
 }
 
 button {

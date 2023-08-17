@@ -27,12 +27,12 @@ Route::get('/', function () {
     return view('login');
 });
 
-//Login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('/usuarios')->group(function () {
+
+Route::prefix('/usuarios')->middleware("auth:Usuario")->group(function () {
 
     Route::get('index', [UsuariosController::class, 'index'])->name('usuario.index');
 
@@ -52,7 +52,7 @@ Route::prefix('/usuarios')->group(function () {
 
 
 
-Route::prefix('/admins')->group(function () {
+Route::prefix('/admins')->middleware("auth:Admins")->group(function () {
 
     Route::get('index', [adminsController::class, 'index'])->name('admins.index');
 
@@ -70,19 +70,18 @@ Route::prefix('/admins')->group(function () {
 
 });
 
-Route::prefix('/filmes')->group(function () {
+Route::prefix('/filmes')->middleware("auth:Admin")->group(function () {
 
-    Route::get('index', [FilmesController::class, 'index'])->name('filmes.index');
+
 
     Route::get('add', [FilmesController::class, 'add'])->name('filmes.add');
 
-    Route::get('usuario', [FilmesController::class, 'usuario'])->name('filmes.usuario');
-
+   Route::get('index', [FilmesController::class, 'index'])->name('filmes.index');
 
     Route::post('add', [FilmesController::class, 'addSave'])->name('filmes.addsave');
     Route::get('filtro', [FilmesController::class, 'filtro'])->name('filmes.filtro');
 
-    Route::get('view/{id}', [FilmesController::class, 'view'])->name('filmes.view');
+
     Route::get('edit/{id}', [FilmesController::class, 'edit'])->name('filmes.edit');
     Route::post('edit/{id}', [FilmesController::class, 'editSave'])->name('filmes.editSave');
 
@@ -92,3 +91,18 @@ Route::prefix('/filmes')->group(function () {
 
 
 });
+Route::prefix('/filmes')->middleware("auth:Usuario")->group(function () {
+
+    Route::get('usuario', [FilmesController::class, 'usuario'])->name('filmes.usuario');
+    Route::get('view/{id}', [FilmesController::class, 'view'])->name('filmes.view');
+
+});
+
+Route::get('/email/verify', function(){
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request){
+   $request->fulfill();
+    return redirect()->route('login');
+})->middleware(['auth', 'signed'])->name('verification.verify');

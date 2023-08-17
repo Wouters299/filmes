@@ -40,4 +40,5 @@ class UsuariosController extends Controller
 
     }
 
+    
 }
