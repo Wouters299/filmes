@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+body {
+    margin: 0; /* Remove default margin */
+    background: #cecece;
+}
+
+header {
+    background: #000;
+    color: #fff;
+    height: 80px; /* Set header height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar-nav>li>a {
+    color: #fff;
+    text-decoration: none; /* Remove underlines */
+    padding: 10px 15px; /* Add padding to navigation links */
+}
+
+.navbar-brand {
+    font-family: 'Allerta Stencil', sans-serif;
+    color: #83ff00;
+    font-size: 24px; /* Increase font size */
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+/* Adjustments for smaller screens (mobile) */
+@media (max-width: 768px) {
+    header {
+        height: auto; /* Adjust header height for mobile */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Add padding to the header */
+    }
+
+    .navbar-nav>li {
+        margin-bottom: 5px; /* Add space between navigation links */
+    }
+
+    .right-side {
+        padding: 20px 0; /* Add padding to the right-side content */
+    }
+}
+
+/* Other CSS rules remain the same */
