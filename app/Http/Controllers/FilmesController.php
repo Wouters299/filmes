@@ -118,5 +118,21 @@ public function deleteForReal($id)
     }
 }
 
+public function filtro(Request $request)
+{
+    $query = Filme::query();
+
+    if ($request->has('ano')) {
+        $query->where('ano', $request->ano);
+    }
+
+    if ($request->has('categoria')) {
+        $query->where('categoria', $request->categoria);
+    }
+
+    $filmes = $query->get();
+
+    return view('filmes.index', compact('filmes'));
+}
 
 }

@@ -50,3 +50,13 @@ header {
 }
 
 /* Other CSS rules remain the same */
+footer {
+    background: #000;
+    color: #fff;
+    height: 20px; /* Set header height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}

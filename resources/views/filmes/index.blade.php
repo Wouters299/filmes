@@ -15,11 +15,28 @@
                         @method('DELETE')
                         <button type="submit" class="delete-button">Deletar</button>
                     </form>
-                </div>
-            </a>
+                    </div>
+                    </a>
+                    
+                    
+                
+          
         </div>
     @endforeach
+     <div class="filtro">
+    <form action="{{ route('filmes.filtro') }}" method="GET" class="filter-form">
+    <label for="ano">Filtrar por Ano:</label>
+    <input type="text" name="ano" id="ano" value="{{ request('ano') }}">
+
+    <label for="categoria">Filtrar por Categoria:</label>
+    <input type="text" name="categoria" id="categoria" value="{{ request('categoria') }}">
+
+    <button type="submit">Filtrar</button>
+    <a href="{{ route('filmes.index') }}">🧨</a>
+</form>
 </div>
 
-<a href="{{ route('filmes.add') }}" class="add-button">Adicionar Novo Filme</a>
+</div>
+
+
 @endsection

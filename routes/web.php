@@ -75,6 +75,7 @@ Route::prefix('/filmes')->group(function () {
     Route::get('add', [FilmesController::class, 'add'])->name('filmes.add');
 
     Route::post('add', [FilmesController::class, 'addSave'])->name('filmes.addsave');
+    Route::get('filtro', [FilmesController::class, 'filtro'])->name('filmes.filtro');
 
     Route::get('edit/{id}', [FilmesController::class, 'edit'])->name('filmes.edit');
     Route::post('edit/{id}', [FilmesController::class, 'editSave'])->name('filmes.editSave');
