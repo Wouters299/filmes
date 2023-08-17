@@ -1,0 +1,26 @@
+.film-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.film-thumbnail {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+}
+
+.film-details {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.film-thumbnail:hover .film-details {
+    display: block;
+}

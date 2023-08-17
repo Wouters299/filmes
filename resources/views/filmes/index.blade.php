@@ -1,47 +1,29 @@
 @extends('layouts')
 
 @section('content')
-    <h1>Lista de Filmes</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Sinopse</th>
-                <th>Ano</th>
-                <th>Categoria</th>
-                <th>Imagem</th>
-                <th>Trailer</th>
-                <th>Ação</th> <!-- Coluna para o botão de edição -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($filmes as $filme)
-                <tr>
-                    <td>{{ $filme->nome }}</td>
-                    <td>{{ $filme->sinopse }}</td>
-                    <td>{{ $filme->ano }}</td>
-                    <td>{{ $filme->categoria }}</td>
-                    <td>{{ $filme->imagem }}</td>
-                    <td>{{ $filme->trailer }}</td>
-                    <td>
-                        
-                        <td>
-    <a href="{{ route('filmes.edit', ['id' => $filme->id]) }}">Editar</a>
-    <form method="post" action="{{ route('filmes.deleteForReal', ['id' => $filme->id]) }}">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Deletar</button>
-    </form>
-</td>
 
-                    </td>
-                </tr>
-               
-            @endforeach
-           
-        </tbody>
-    </table>
+<link rel="stylesheet" href="{{ asset('css/indexo.css') }}">
+    <h1>Lista de Filmes</h1>
+    <div class="film-gallery">
+        @foreach($filmes as $filme)
+            <div class="film-thumbnail">
+                <a href="{{ route('filmes.edit', ['id' => $filme->id]) }}">
+                    <img src="{{ asset('img/events/' . $filme->imagem) }}" alt="{{ $filme->nome }}" width="200">
+                </a>
+                <div class="film-details">
+                   
+                    <form method="post" action="{{ route('filmes.deleteForReal', ['id' => $filme->id]) }}" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" style="border: none; background: none; color: blue; cursor: pointer;">Deletar</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
     <a href="{{ route('filmes.add') }}" class="add-button">Adicionar Novo Filme</a>
 @endsection
+
 
 

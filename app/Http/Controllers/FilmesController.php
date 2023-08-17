@@ -11,6 +11,7 @@ class FilmesController extends Controller
     public function add()
     {
         return view('filmes.add');
+        
     }
 
    
@@ -22,7 +23,7 @@ public function index()
     return view('filmes.index', compact('filmes'));
 }
 
-    public function addSave(Request $form)
+public function addSave(Request $form)
 {
     $filme = new Filme; // Criar uma nova instância de Filme
 
@@ -34,7 +35,6 @@ public function index()
         $requestImage->move(public_path('img/events'), $imageName);
 
         $filme->imagem = $imageName; // Salvar o nome da imagem na instância de Filme
-        return redirect()->route('filmes.index')->with('sucesso', 'Filme adicionado com sucesso');
     }
 
     $dados = $form->validate([
@@ -53,7 +53,10 @@ public function index()
     $filme->trailer = $dados['trailer'];
 
     $filme->save(); // Salvar a instância de Filme no banco de dados
+
+    return redirect()->route('filmes.index')->with('sucesso', 'Filme adicionado com sucesso');
 }
+
 public function edit($id)
 {
     $filme = Filme::findOrFail($id);
