@@ -11,16 +11,23 @@ class FilmesController extends Controller
     public function add()
     {
         return view('filmes.add');
-        
+
     }
 
-   
+
 
 public function index()
 {
     $filmes = Filme::all();
 
     return view('filmes.index', compact('filmes'));
+}
+
+public function usuario()
+{
+    $filmes = Filme::all();
+
+    return view('filmes.usuario', ['filmes' => $filmes]);
 }
 
 public function addSave(Request $form)
@@ -66,6 +73,12 @@ public function edit($id)
     ]);
 }
 
+public function view($id)
+{
+    $filme = Filme::findOrFail($id);
+
+    return view('filmes.view', ['filme' => $filme]);
+}
 public function editSave(Request $form, $id)
 {
     $filme = Filme::findOrFail($id);

@@ -3,33 +3,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 20px; /* Adjust the gap between thumbnails */
+    gap: 0; /* No gap between thumbnails */
 }
 
-/* Style for each film thumbnail */
 .film-thumbnail {
     position: relative;
-    width: calc(33.33% - 20px); /* Adjust the width as needed for 3 thumbnails per row */
+    width: calc(33.33% - 20px);
+    margin: 0;
 }
 
 .film-thumbnail img {
-    max-width: 100%;
-    height: auto;
-}
-
-.film-details {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.3s;
+    height: 240px;
+    object-fit: cover;
 }
 
 .film-thumbnail:hover .film-details {
@@ -53,9 +39,7 @@
     border-radius: 5px;
 }
 
-
 .filter-form {
-   
     color: antiquewhite;
     position: fixed;
     bottom: 0;
@@ -66,8 +50,6 @@
     border-top: 1px solid #ccc;
 }
 
-
 .film-gallery {
-    margin-bottom: 60px; 
+    margin-bottom: 60px;
 }
-

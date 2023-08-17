@@ -34,6 +34,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::prefix('/usuarios')->group(function () {
 
+    Route::get('index', [UsuariosController::class, 'index'])->name('usuario.index');
+
     Route::get('add', [UsuariosController::class, 'add'])->name('usuarios.add');
 
     Route::post('add', [UsuariosController::class, 'addSave'])->name('usuarios.addSave');
@@ -74,9 +76,13 @@ Route::prefix('/filmes')->group(function () {
 
     Route::get('add', [FilmesController::class, 'add'])->name('filmes.add');
 
+    Route::get('usuario', [FilmesController::class, 'usuario'])->name('filmes.usuario');
+
+
     Route::post('add', [FilmesController::class, 'addSave'])->name('filmes.addsave');
     Route::get('filtro', [FilmesController::class, 'filtro'])->name('filmes.filtro');
 
+    Route::get('view/{id}', [FilmesController::class, 'view'])->name('filmes.view');
     Route::get('edit/{id}', [FilmesController::class, 'edit'])->name('filmes.edit');
     Route::post('edit/{id}', [FilmesController::class, 'editSave'])->name('filmes.editSave');
 
