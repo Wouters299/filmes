@@ -8,7 +8,7 @@
             @endforeach
         </ul>
     @endif
-
+    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
     <section id="signup">
     <form action="{{ isset($filme) ? route('filmes.editSave', ['id' => $filme->id]) : route('filmes.addsave') }}" method="POST" class="form" enctype="multipart/form-data">
             @csrf

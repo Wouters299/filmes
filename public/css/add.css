@@ -1,0 +1,95 @@
+/* Define uma fonte padrão para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Estiliza a seção de cadastro */
+#signup {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estiliza o título */
+#signup h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estiliza os campos de entrada */
+.field {
+    margin-bottom: 15px;
+}
+
+.field-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.field-input input,
+.field-input textarea,
+.field-input select,
+input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    margin-right: 1%;
+    font-size: 14px;
+
+}
+
+.field-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Estiliza o botão de envio */
+#submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+/* Estiliza mensagens de erro */
+.field-errors {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Estiliza o link "Ainda não tenho login" */
+.field a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Alinha horizontalmente os campos de entrada agrupados */
+.field-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estiliza os campos agrupados */
+.fname-input,
+.lname-input {
+    flex: 1;
+}
+
+/* Estiliza campos de entrada com asterisco */
+.field-input span {
+    color: #dc3545;
+    margin-right: 5px;
+}

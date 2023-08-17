@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"rel="stylesheet">
-    <link rel="stylesheet" href="../style/add.css">
+    <link rel="stylesheet" href="../css/add_admin.css">
     <script src="../js/add.js" defer></script>
 </head>
 

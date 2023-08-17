@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<link rel="stylesheet" href=" asset('css/login.css') }}">
+
+
+<title>Login</title>
 </head>
 <body>
 
+descomitar loginController
+
+
+<form method="POST" action=" route('login') }}">
+    colocar o @ na frete do ->csrf
+    <h1>Login</h1>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" required><br>
+
+    <label for="password">Senha:</label>
+    <input type="password" name="password" required><br>
+
+   
+    
+    <button type="submit">Entrar</button>
+</form>
 </body>
 </html>
