@@ -7,6 +7,7 @@
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\FilmesController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\LoginController;
 
 use Illuminate\Support\Facades\Route;
 
