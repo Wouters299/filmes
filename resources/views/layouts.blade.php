@@ -24,6 +24,10 @@
         <li class="nav-item"> 
             <a class="nav-link" href="{{ route('filmes.index') }}">Index</a>
         </li> 
+
+        <li class="nav-item"> 
+            <a class="nav-link" href="{{ route('filmes.index') }}">delete</a>
+        </li> 
         <!-- Add more navigation links as needed -->
     </ul> 
 </div>	
