@@ -12,8 +12,7 @@
 </head>
 
 <body>
-
-
+    
 
     <div class="wrapper">
         <div class="form-wrapper sign-up">
@@ -21,14 +20,14 @@
                 @csrf
                 <h2> Responsável <br> Aluno </h2>
                 <div class="input-group">
-                    <input name="email" type="email" required>
+                    <input name="cpf" type="number" required>
                     <label for="">Usuário</label>
                 </div>
                 <div class="input-group">
                     <input name="password" type="password" required>
                     <label for="">Senha</label>
                 </div>
-
+             
                 <button type="submit" class="btn">Entrar</button>
 
                 <div class="sign-link">
@@ -44,7 +43,7 @@
                 <p>@include('errors')</p>
                 <div class="input-group">
                     <input name="cpf" type="number" required>
-                    <label for="">Cpf do Administrador</label>
+                    <label for="">Cpf do Usuário</label>
                 </div>
 
                 <div class="input-group">
@@ -52,7 +51,7 @@
                     <label for="">Senha</label>
                 </div>
 
-
+                
                 <button type="submit" class="btn">Entrar</button>
                 <div class="sign-link">
                     <p> <a href="# " class="signUp-link"> Responsável | Aluno</a></p>

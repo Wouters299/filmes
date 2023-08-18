@@ -8,7 +8,6 @@ use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\FilmesController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\LoginController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +22,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
+
+
 Route::get('/', function () {
     return view('login');
 });
+Route::post('/', [LoginController::class, 'login']);
+//Login
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::prefix('/usuarios')->middleware("auth:Usuario")->group(function () {
@@ -98,11 +102,3 @@ Route::prefix('/filmes')->middleware("auth:Usuario")->group(function () {
 
 });
 
-Route::get('/email/verify', function(){
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
-
-Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request){
-   $request->fulfill();
-    return redirect()->route('login');
-})->middleware(['auth', 'signed'])->name('verification.verify');

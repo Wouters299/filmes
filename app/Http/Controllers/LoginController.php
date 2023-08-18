@@ -14,9 +14,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('cpf', 'password');
 
-        if (Auth::guard('usuario')->attempt($credentials)) {
+        if (Auth::guard('Usuario')->attempt($credentials)) {
             return redirect()->intended(route('filmes.usuario'));
         }
 
