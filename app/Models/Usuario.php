@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class Aluno extends Model implements Authenticatable
+class Usuario extends Model implements Authenticatable
 {
     use AuthenticableTrait;
     use HasFactory;

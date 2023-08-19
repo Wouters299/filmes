@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             filmesSeeder::class,
             UsuarioSeeder::class,
-            AdminSeeder::class
         ]);
     }
 }

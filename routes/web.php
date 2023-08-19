@@ -25,16 +25,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::post('/', [LoginController::class, 'login']);
-//Login
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
 
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-
+   Route::get('/', function () {
+        return redirect()->route('filmes.login');
+    }
+    )->name('login');
 
 Route::prefix('/usuarios')->middleware("auth:Usuario")->group(function () {
 
@@ -54,27 +49,7 @@ Route::prefix('/usuarios')->middleware("auth:Usuario")->group(function () {
 
 });
 
-
-
-Route::prefix('/admins')->middleware("auth:Admins")->group(function () {
-
-    Route::get('index', [adminsController::class, 'index'])->name('admins.index');
-
-    Route::get('add', [adminsController::class, 'add'])->name('admins.add');
-
-    Route::post('add', [adminsController::class, 'addsave'])->name('admins.addsave');
-
-    Route::get('edit/{produto}', [adminsController::class, 'edit'])->name('admins.edit');
-
-    Route::post('edit/{produto}', [adminsController::class, 'editSave'])->name('admins.editSave');
-
-    Route::get('delete/{produto}', [adminsController::class, 'delete'])->name('admins.delete');
-
-    Route::delete('delete/{produto}', [adminsController::class, 'deleteForReal'])->name('admins.deleteForReal');
-
-});
-
-Route::prefix('/filmes')->middleware("auth:Admin")->group(function () {
+Route::prefix('/filmes')->middleware('auth')->group(function () {
 
 
 
@@ -95,10 +70,18 @@ Route::prefix('/filmes')->middleware("auth:Admin")->group(function () {
 
 
 });
-Route::prefix('/filmes')->middleware("auth:Usuario")->group(function () {
-
+Route::prefix('/filmes')->group(function () {
     Route::get('usuario', [FilmesController::class, 'usuario'])->name('filmes.usuario');
     Route::get('view/{id}', [FilmesController::class, 'view'])->name('filmes.view');
-
 });
+
+Route::get('/', function () {
+    return view('login');
+});
+
+Route::post('user-login', [LoginController::class, 'loginUser'])->name('user.login');
+Route::post('admin-login', [LoginController::class, 'adminLogin'])->name('admin.login');
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
