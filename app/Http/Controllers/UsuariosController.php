@@ -28,8 +28,6 @@ class UsuariosController extends Controller
             'nome' => 'required',
             'email' => 'required',
             'senha' => 'required',
-
-
         ]);
 
 
